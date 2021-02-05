@@ -1,22 +1,34 @@
-$(document).ready(() => {
-    'use strict'
+'use strict';
 
-    $('#masters__action').slick({
-        centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        centerPadding: '0',
-        variableWidth: true,
+
+$(document).ready(() => {
+
+    document.getElementById('burger').onclick = function () {
+        document.getElementById('header-items').classList.add('open');
+    };
+    document.querySelectorAll('#header-items > *').forEach((item) => {
+        item.onclick = () => {
+            document.getElementById('header-items').classList.remove('open');
+        }
+    });
+
+    $('#slider').slick({
         dots: true,
-        adaptiveHeight: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll:1,
+        centerPadding: '0px',
+        centerMode: true,
+        // variableWidth: true,
+        // adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 579,
+                breakpoint: 1024,
                 settings: {
                     arrows: true,
                     dots: true,
-                    variableWidth: true,
-                    // centerMode: true,
+                    centerMode: true,
                     // centerPadding: '40px',
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -24,6 +36,8 @@ $(document).ready(() => {
             }
         ]
     });
+
+
 
     $(function () {
         $("#datepicker").datepicker();
@@ -112,7 +126,7 @@ $(document).ready(() => {
         }
 
 
-        if (time.val() && data.val() && name.val() && phone.val && barber.val() !== null && service.val() !== null) {
+        if (time.val() && data.val() && name.val() && phone.val() && barber.val()  && service.val()) {
             $.ajax({
                 type: 'post',
                 url: 'mail.php',
@@ -146,14 +160,14 @@ $(document).ready(() => {
     });
 
 
-    const discount =$('#popup-discount');
+    const discount = $('#popup-discount');
     $('#open-discount').click(() => {
         discount.css('display', 'flex');
 
 
-       discount.click(()=>{
-           discount.hide();
-       });
+        discount.click(() => {
+            discount.hide();
+        });
     });
     new WOW({
         animateClass: "animate__animated"
