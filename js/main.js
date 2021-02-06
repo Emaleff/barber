@@ -12,12 +12,13 @@ $(document).ready(() => {
         }
     });
 
+
     $('#slider').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 3,
-        slidesToScroll:1,
+        slidesToScroll: 1,
         centerPadding: '0px',
         centerMode: true,
         // variableWidth: true,
@@ -36,7 +37,6 @@ $(document).ready(() => {
             }
         ]
     });
-
 
 
     $(function () {
@@ -126,7 +126,7 @@ $(document).ready(() => {
         }
 
 
-        if (time.val() && data.val() && name.val() && phone.val() && barber.val()  && service.val()) {
+        if (time.val() && data.val() && name.val() && phone.val() && barber.val() && service.val()) {
             $.ajax({
                 type: 'post',
                 url: 'mail.php',
